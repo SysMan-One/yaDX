@@ -13,10 +13,11 @@
 /*  26-Sep-2026 CLD ECO5: Type: Home/End go to the first/last page      */
 /*  21-Oct-2026 CLD ECO12: file characteristics: system <fh2def.h>   */
 /*                        (FH2$M_*); DEC/Shell FCHDEF.H dropped          */
+/*  21-Oct-2026 CLD ECO14: Status page painted in one display update     */
 
 #define __MODULE__	"FILERSTA"
-#define __IDENT__	"X-02-05ECO12"
-#define __REV__		"02.05.12"
+#define __IDENT__	"X-02-05ECO14"
+#define __REV__		"02.05.14"
  
  
 #define	__NEW_STARLET	1
@@ -763,6 +764,11 @@ char *a_errmsg;
 	strcat(l_lines[l_lineno++], l_frat);
     }
  
+    /*  21-Oct-2026 CLD: the status lines go out in one display update
+    **  (content writes only: the display is already pasted above).  **/
+    if (!(1 & (l_rc = smg$begin_display_update (
+	      &l_filer_status_display_id))))
+        $LOG(l_rc);
     for (l_i = 1; l_i <= l_lineno; l_i++)
     {
 	strcpy(l_linebuf, l_lines[l_i-1]);
@@ -778,6 +784,9 @@ char *a_errmsg;
 			    0))))
 	    $LOG(l_rc);
     }
+    if (!(1 & (l_rc = smg$end_display_update (
+	      &l_filer_status_display_id))))
+        $LOG(l_rc);
  
     if (!(1 & (l_rc = smg$set_cursor_abs (
 	      &l_filer_status_display_id,

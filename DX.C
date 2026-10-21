@@ -46,10 +46,12 @@
 /*                        FCHDEF.H dropped; README Thanks, trademarks     */
 /*  21-Oct-2026 CLD ECO13: product ident bump: INQUIRE.C input line --   */
 /*                        key codes >= 256, Home/End, TAB update        */
+/*  21-Oct-2026 CLD ECO14: product ident bump: FILERSTA.C Status page in  */
+/*                        one smg$ display update                        */
 
 #define __MODULE__	"DX"
-#define __IDENT__	"X-02-05ECO13"
-#define __REV__		"02.05.13"
+#define __IDENT__	"X-02-05ECO14"
+#define __REV__		"02.05.14"
 /*
 ** ..........................................................................
 **

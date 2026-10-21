@@ -2,7 +2,7 @@
 
 *Русский текст — ниже, после английского.*
 
-Version X-02-05ECO13 (02.05.13). Editors: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
+Version X-02-05ECO14 (02.05.14). Editors: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
 Original authors: Chau-Kuang Hung (1989-1992) and Jérôme Lauret (1994-1999) — see Thanks.
 
 ## What it is
@@ -281,7 +281,7 @@ made, supported or endorsed by them.
 
 # yaDX — DX, полноэкранный файловый менеджер для OpenVMS
 
-Версия X-02-05ECO13 (02.05.13). Редакция: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
+Версия X-02-05ECO14 (02.05.14). Редакция: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
 Авторы оригинала: Chau-Kuang Hung (1989-1992) и Jérôme Lauret (1994-1999) — см. Благодарности.
 
 ## Что это

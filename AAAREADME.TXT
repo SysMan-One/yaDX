@@ -1,8 +1,8 @@
 AAAREADME.TXT -- yaDX, DX full-screen file manager for OpenVMS
 
 __MODULE__  AAAREADME
-__IDENT__   X-02-05ECO13
-__REV__     02.05.13
+__IDENT__   X-02-05ECO14
+__REV__     02.05.14
 
 AUTHORS:    StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan)
             -- editors of DX by Chau-Kuang Hung (1989-1992) and
@@ -22,6 +22,7 @@ MODIFICATION HISTORY:
                       where the sources come from; trademarks line.
     21-OCT-2026  CLD  X-02-05ECO13: Keys -- the input line keys
                       (Home/End added).
+    21-OCT-2026  CLD  X-02-05ECO14: version only (Status page update).
 
 Made from README.md.  The text is UTF-8: the Russian part needs a UTF-8
 terminal, or read README.md on the git side.
@@ -31,7 +32,7 @@ YADX -- DX, A FULL-SCREEN FILE MANAGER FOR OPENVMS
 
 Русский текст -- ниже, после английского.
 
-Version X-02-05ECO13 (02.05.13). Editors: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
+Version X-02-05ECO14 (02.05.14). Editors: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
 Original authors: Chau-Kuang Hung (1989-1992) and Jérôme Lauret (1994-1999) -- see Thanks.
 
 What it is
@@ -360,7 +361,7 @@ made, supported or endorsed by them.
 YADX -- DX, ПОЛНОЭКРАННЫЙ ФАЙЛОВЫЙ МЕНЕДЖЕР ДЛЯ OPENVMS
 =======================================================
 
-Версия X-02-05ECO13 (02.05.13). Редакция: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
+Версия X-02-05ECO14 (02.05.14). Редакция: StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan).
 Авторы оригинала: Chau-Kuang Hung (1989-1992) и Jérôme Lauret (1994-1999) -- см. Благодарности.
 
 Что это

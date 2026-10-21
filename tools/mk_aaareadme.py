@@ -3,8 +3,8 @@
 #  mk_aaareadme.py -- make AAAREADME.TXT (plain text for VMS) from README.md
 #
 #  __MODULE__	YADX_MK_AAAREADME
-#  __IDENT__	X-02-05ECO13
-#  __REV__	02.05.13
+#  __IDENT__	X-02-05ECO14
+#  __REV__	02.05.14
 #
 #  AUTHORS:	StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan)
 #
@@ -17,6 +17,7 @@
 #	21-OCT-2026	CLD	X-02-05ECO11: ident only (GPL v2 text in COPYING).
 #	21-OCT-2026	CLD	X-02-05ECO12: ident only (Thanks, trademarks).
 #	21-OCT-2026	CLD	X-02-05ECO13: ident only (input line keys).
+#	21-OCT-2026	CLD	X-02-05ECO14: ident only.
 #
 #  Usage:	python3 tools/mk_aaareadme.py		(from the top directory)
 #
@@ -52,8 +53,8 @@ txt=re.sub(r'\n{3,}','\n\n','\n'.join(out)).strip()
 hdr="""AAAREADME.TXT -- yaDX, DX full-screen file manager for OpenVMS
 
 __MODULE__  AAAREADME
-__IDENT__   X-02-05ECO13
-__REV__     02.05.13
+__IDENT__   X-02-05ECO14
+__REV__     02.05.14
 
 AUTHORS:    StarLet Squad and Ruslan R. Laishev (AKA: BadAss SysMan)
             -- editors of DX by Chau-Kuang Hung (1989-1992) and
@@ -73,6 +74,7 @@ MODIFICATION HISTORY:
                       where the sources come from; trademarks line.
     21-OCT-2026  CLD  X-02-05ECO13: Keys -- the input line keys
                       (Home/End added).
+    21-OCT-2026  CLD  X-02-05ECO14: version only (Status page update).
 
 Made from README.md.  The text is UTF-8: the Russian part needs a UTF-8
 terminal, or read README.md on the git side.
