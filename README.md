@@ -68,7 +68,7 @@ the sources and with `DX.EXE` and `DXHELP.HLB` already built. Copy it to VMS
 in **binary** mode, then:
 
 ```
-$ RUN yaDX-X-02-05ECO13.EXE       ! the file you downloaded; checks CRC, writes DX_V29.BCK
+$ RUN yaDX-X-02-05ECO14.EXE       ! the file you downloaded; checks CRC, writes DX_V29.BCK
 $ BACKUP DX_V29.BCK/SAVE_SET [...] ! makes the subdirectory [.DX]
 $ @[.DX]DX                        ! defines the DX command (see Install)
 ```
@@ -347,7 +347,7 @@ https://codeberg.org/SysManOne/yaDX/releases
 **двоичном** режиме, затем:
 
 ```
-$ RUN yaDX-X-02-05ECO13.EXE       ! скачанный файл; проверит CRC, запишет DX_V29.BCK
+$ RUN yaDX-X-02-05ECO14.EXE       ! скачанный файл; проверит CRC, запишет DX_V29.BCK
 $ BACKUP DX_V29.BCK/SAVE_SET [...] ! создаст подкаталог [.DX]
 $ @[.DX]DX                        ! определит команду DX (см. Установка)
 ```
