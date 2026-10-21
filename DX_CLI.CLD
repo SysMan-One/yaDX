@@ -1,0 +1,44 @@
+! DX_CLI.CLD -- DX command line, parsed inside DX by CLI$ (SET COMMAND/OBJECT)
+!
+!	__MODULE__	DX_CLI
+!	__IDENT__	X-02-05ECO8
+!	__REV__		02.05.08
+!
+!	MODIFICATION HISTORY:
+!
+!	28-SEP-2026	RRL	X-02-05ECO8: __MODULE__/__IDENT__/__REV__ header added.
+!
+Module DX_CLI
+Ident "X-02-05ECO8"
+
+define verb DX
+   parameter P1 , label=FILE_SPEC, default, value (list,default="*.*;*",type=$infile)
+   qualifier INITIAL_FILE,	value (required,type=$infile)
+
+   qualifier DETAIL,	nonnegatable,	default
+   qualifier CREATED,	nonnegatable,	default
+   qualifier ASCENDING, nonnegatable,	default
+   qualifier DESCENDING,nonnegatable
+   qualifier BRIEF,	nonnegatable
+   qualifier MODIFIED,	nonnegatable
+   qualifier EXPIRED,	nonnegatable
+   qualifier BACKUP,	nonnegatable
+   qualifier EXIT,	nonnegatable
+
+   qualifier BEFORE,	nonnegatable,	value (default="TODAY",type=$datetime)
+   qualifier SINCE,	nonnegatable,	value (default="TODAY",type=$datetime)
+   qualifier MAXIMUM,	nonnegatable,	value (default="1073741823",type=$number)
+   qualifier MINIMUM,	nonnegatable,	value (default="0",type=$number)
+   qualifier EXCLUDE,	nonnegatable,	value (required,list,type=$infile)
+   qualifier SORT_BY,	nonnegatable,	default, value (required,type=DX_SORTBY)
+
+   disallow (BRIEF and DETAIL)
+   disallow (ASCENDING and DESCENDING)
+   disallow (CREATED and MODIFIED and EXPIRED and BACKUP)
+
+define type DX_SORTBY
+   keyword NAME, 	default
+   keyword TYPE
+   keyword SIZE
+   keyword DATE
+

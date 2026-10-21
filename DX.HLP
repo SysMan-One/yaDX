@@ -1,0 +1,491 @@
+! DX.HLP -- text of HELP DX, built into DXHELP.HLB by DX_BUILD.COM
+!
+!	__MODULE__	DX_HLP
+!	__IDENT__	X-02-05ECO13
+!	__REV__		02.05.13
+!
+!	MODIFICATION HISTORY:
+!
+!	28-SEP-2026	RRL	X-02-05ECO8: __MODULE__/__IDENT__/__REV__ header added.
+!	21-OCT-2026	CLD	X-02-05ECO13: Entering_Input -- HOME and END.
+!
+1 DX
+ DX  (Directory  eXtension)  is a VAX/VMS utility that performs various
+ file operations on a VT100 or  upper  terminals.   It  allows  you  to
+ delete,  type,  copy,  set  protection,  compare, and edit one or more
+ files at once.  DX is a customizable,  flexible,  real-time  directory
+ browser/editor.   You  can use it to open multiple windows on the same
+ or different directories.
+
+ DX provides the following main features:
+
+ o Flexible display and sorting
+ o Pull-down menu for point-and-shoot interface
+ o Display   sub-directories   and  directory  contents  with  flexible
+ "filters"
+ o Multiple inclusion/exclusion patterns in file operations
+ o Multiple windows provides different views
+ o Display a tree-like directory structure in a scrollable window
+
+ VAX and VMS are trademarks of Digital Equipment Corporation.
+
+2 Getting_Started
+ DX  provides  multiple  windows and point-and-shoot menus that greatly
+ simplify file operations including delete,  copy,  type,  rename,  set
+ protection and many more.
+
+ Format:
+        $ DX filespec[,...]
+
+3 Parameters
+4 filespec[,...]
+ Specifies  one or more files to be listed.  Wildcard characters can be
+ used to specify the directory specification, file name, file type,  or
+ version  number  fields of a file.  If you specify more than one file,
+ separate the file specifications with either commas (,) or plus  signs
+ (+).
+
+3 Command_Qualifiers
+4 /INITIAL_FILE=init_file
+ When  DX  is started, it normally loads various settings from the file
+ 'DX$STARTUP.DAT' in your current directory.  If it doesn't  exist,  DX
+ tries  your  home  directory.  The command qualifier /INITIAL_FILE can
+ be used to load an  init  file  with  another  name  or  from  another
+ directory.
+
+4 /SORT_BY=criteria
+ DX  provides  several  way  to  sort the files.  You can sort files by
+ NAME, TYPE, SIZE, DATE, or MARK.  The default is sort by NAME.
+
+4 /ASCENDING
+ Sorts the files in ascending order; this is the default setting.
+
+4 /DESCENDING
+Sorts the files in descending order.
+
+4 /BRIEF
+ Lists  the  files  in multiple column output; only the file name, file
+ type, and version are displayed.
+
+4 /DETAIL
+ Lists  in  long  format,  giving  file name, file type, version, date,
+ size in blocks, and protections.   Depending  on  the  date  type  you
+ specified,  the  date can be displayed in creation date, last modified
+ date, expired date, or backup date.
+
+4 /BEFORE=time
+ Lists  only the files that was created before the specified date.  You
+ can use the following values:
+
+ o TODAY
+
+ o YESTERDAY
+
+ o TOMORROW
+
+ o absolute time (dd-mmm-yy:hh:mm:ss.tt)
+
+4 /SINCE=time
+ Lists  only  the files that was created after the specified date.  You
+ can use the following values:
+
+ o TODAY
+
+ o YESTERDAY
+
+ o TOMORROW
+
+ o absolute time (dd-mmm-yy:hh:mm:ss.tt)
+
+4 /CREATED
+ Lists with the creation date; this is the default setting.
+
+4 /MODIFIED
+ Lists with the last modified date.
+
+4 /EXPIRED
+ Lists with the expired date.
+
+4 /BACKUP
+ Lists with the backup date.
+
+4 /MAXIMUM=blocks
+ Lists the files that are equal or smaller than the specified blocks.
+
+4 /MINIMUM=blocks
+ Lists the files that are at least as large as the specified blocks.
+
+4 /EXCLUDE=filespec
+ Lists only the files that are excluding from the specified filespec.
+
+4 /EXIT
+ Exit immediatly after printing the list of files.
+
+3 Examples
+1. Lists the files in the current directory.
+
+        $ DX
+
+
+2. Lists all the files in SYS$USER02:[JDOL.DOC] and all the
+.com files in SYS$USER05:[DREMKER].  The output is sorted by
+last modified date in descending order.
+
+        $  DX/SORT=MODIFIED/DESCENDING SYS$USER02:[JDOL.DOC], -
+        _$ SYS$USER05:[DREMKER]*.COM
+
+
+3. Lists all the .doc and .exe files in the current directory
+that are larger than or equal to 50 blocks.  Only the file name
+is listed.
+
+        $  DX/MIN=50/BRIEF *.DOC, *.EXE
+
+2 Pulldown_Menus
+ The  main  menu for DX displays a row of choices across the top of the
+ screen.  All other menu are sub-menus of the main menu and  appear  as
+ vertical lists of choices.
+
+ You  can  select  a  menu  choice  by typing the capital letter of the
+ desired item.  For example, press the letter w (or W) to bring up  the
+ Window sub-menu.
+
+ Or press the DO key (or keypad minus, PF4, or the "-" key) to go
+ straight to the main menu:  the Window sub-menu opens at once, and
+ the LEFT and RIGHT arrow keys move to the other menu choices.
+
+ Within  the  sub-menu,  you  can  use  the  UP  or  DOWN arrow keys to
+ position the cursor to desired item (shown by  the  highlighting)  and
+ press  RETURN.   Alternately,  you  can type the capital letter of the
+ item; DX executes it immediately if it can be  uniquely  identified.
+ You  can also move between menu choices using the LEFT and RIGHT arrow
+ keys.
+
+ If  you  accidentally  call  up  the  sub-menu  and want to cancel it,
+ simply press the keypad 0 key and the sub-menu disappears.  The key
+ that opened the main menu (DO, keypad minus, PF4, or "-") closes it
+ the same way.
+
+2 Window_Menu
+ The  Window_Menu  provides  window  management  operation,  which  can
+ display parts of different directories,  or  different  parts  of  one
+ directory.
+
+ The following list summarizes the supported functions.
+
+ Split window     Splits the selected window in two, with all
+                  the windows get the same number of lines.
+                  Depending on the terminal you used, the number
+                  of windows splited can be ranging from three
+                  to seven.
+
+ Delete window    Gets rid the selected window.
+
+ One window       Gets rid of all windows except the selected
+                  one.
+
+ Next window      Selects the next window.
+
+ Previous window  Selects the previous window.
+
+ eXit             Quits DX and set default directory to the
+                  current directory.
+
+2 Action_Menu
+ The  Action_Menu provides all the VMS file management operations.  And
+ multi-file mode let you work with one file or  several  hundred  files
+ with equal ease.
+
+ The following list summarizes the supported functions.
+
+Type             Reads the file and display it on the
+                 terminal.  It normally pauses after
+                 each screenful.  If you press DOWN
+                 arrow, one more page is displayed.
+                 If you press UP arrow, previous page
+                 is displayed.  HOME goes to the first
+                 page, END to the last one.  You can
+                 press keypad 0 key to return to DX.
+
+Edit             Edits the highlighted file use desired
+                 editor.  See Editor under the
+                 Customize_Menu for more detail.
+
+
+Delete           Deletes the highlighted file.
+
+purGe            Purges the highlighted file.
+
+Rename           Renames the highlighted file.  You
+                 are prompted to provide a new name.
+
+Copy             Copys to another file.
+
+Append           Appends to another file.
+
+Set protection   Changes the file protections.
+
+Print            Outputs the file to a printing device.
+                 Currently, only SYS$PRINT is supported.
+
+Show             Shows the details of the file attributes.
+
+Find             Searchs the file for lines matching a
+                 pattern.  The patterns are fixed strings.
+                 Arrows page up and down through the
+                 matches, HOME goes to the first page,
+                 END to the last one.
+
+Run              Executes the file.  Normally, you select
+                 this option to execute on the .COM or
+                 .EXE files.
+
+Compare          Differential file comparator.
+
+pacK             Compresses a file.  All the file
+                 attributes are preserved along with
+                 the file contents.
+
+Unpack           De-compresses a file.  The original
+                 file attributes are also restored.
+
+2 Execute_Menu
+ The  Execute_Menu  allows  you to execute DCL commands without leaving
+ DX.
+
+Command          Executes a DCL command.
+
+VMS Gateway      Spawns a subprocess.  You can type
+                 "LOGOFF" to kill the subprocess and
+                 return to DX.
+
+2 Sort_Menu
+Sorts the files in different ways.
+
+The following list summarizes the supported functions.
+
+by Name          Sorts files by name.
+
+by Type          Sorts files by type.
+
+by Date          Sorts files by date.
+
+by Size          Sorts files by size.
+
+by Marked        Sorts files by marked.
+
+2 Filter_Menu
+ The  Filter_Menu  allows  you  to  use different selection criteria to
+ select any subset of files you need.
+
+ The following list summarizes the supported functions.
+
+Name             Selects files by name.  You can specify
+                 one or more regular VMS file specifications,
+                 separated the file specifications by commas
+                 (,) or plus signs (+).
+
+Exclude          Selects files that are not in the specified
+                 file specification.
+
+Since            Selects files that were created after
+                 the specified date.
+
+Before           Selects files that were created before
+                 the specified date.
+
+maXimum          Selects files that are less than or equal to
+                 the specified blocks.
+
+Minimum          Selects files that are larger than or equal
+                 to the specified blocks.
+
+2 Option_Menu
+ The  Option_Menu  provides  additional  directory  or  file management
+ operations.
+
+The following list summarizes the supported functions.
+
+Direct tree      Displays a graphic directory tree, starting
+                 from the current root directory.
+
+Update           Refreshs the screen by re-reading the
+                 files from the disk.
+
+Mkdir            Creates a new directory.
+
+show Buffer      Displays information about the buffers.
+                 DX keeps the file information in a buffer
+                 each time you visit a directory.
+
+Write            Outputs the listing to an external file.
+
+Goto             Goto the specified page.
+
+Short form       Lists the files in multiple column output;
+                 only the file name, file type, and version
+                 are displayed.
+
+Long form        Lists in long format, giving file name, file
+                 type, version, date, size in blocks, and
+                 protections.
+
+Include all      Marks all files to be included in multiple
+                 mode.
+
+Exclude all      Un-marks all files.
+
+Re-include all   Marks all the files that have been executed
+                 during previous multiple operation.
+
+About DX         Displays DX version information.
+
+3 Moving_Around_Dirtree
+For details, please see the topics under Keypad.
+
+2 Customize_Menu
+ The  Customize_Menu  allows you to tailor to your personal preferences
+ (i.e.  the editor you want to use, or confirmation  before  each  file
+ deletion.)
+
+ The following list summarizes the supported functions.
+
+Editor           Specifies the desired editor.  The valid
+                 value are: EDT and TPU.  (You can also
+                 specify LSE if your site have it installed.)
+
+Display with date
+                 Specifies the kind of date to disply on
+                 the screen.  The valid values are:
+                 CREATION DATE, MODIFIED DATE, BACKUP DATE,
+                 and EXPIRED DATE.
+
+Type file        Specifies whether the Type operation should
+                 pauses after each screenful of display.
+
+Auto update      Specifies whether DX should re-read from
+                 the disk after an edit, execute DCL command,
+                 or VMS gateway operation is performed.
+
+Delete confirm   Specifies whether DX should prompt you
+                 for confirmation every time a deletion
+                 operation is performed.
+
+Purge confirm    Specifies whether DX should prompt you
+                 for confirmation every time a purge
+                 operation is performed.
+
+Show clock       Specifies whether DX should display a
+                 clock at the upper right corner of the
+                 screen.
+
+Flash clock colon
+                 Specifies whether DX should flash clock
+                 colon on and off.
+
+Save settings    Saves the current settings to a file.
+
+Restore settings Restores the settings from a file.
+
+Use defaults     Use the default settings.
+
+2 Multiple_Mode
+ DX  normally  operates  in  single mode; a file operation only affects
+ the highlighted file.   If,  however,  you  want  to  perform  a  file
+ operation  on  more  than  one  files,  you  can  use multiple mode as
+ follows:
+
+o  Move the cursor to the desired file and press
+   keypad 7.  You will notice an inclusion mark,
+   expressed as an asterisk (*) sign, is displayed
+   to the left of the file.  Repeat this step as
+   needed.
+
+o  Press keypad 9.  Now the mode in the status line
+   changes from SINGLE to MULTIPLE.
+
+o  Select a file operation and start execution.
+   As DX is visiting each file, the inclusion mark
+   is replaced by a plus (+) sign.
+
+2 Keypad
+ You  move the cursor from one file to another using arrow keys and the
+ keypad keys.  For example, when you press keypad 8, DX scrolls  up  or
+ down  one  screenful  of  files.  You can press keypad 2 to toggle the
+ direction.
+
+ Here is a summary of the functions that the keypad performs:
+
+  KEYPAD  FUNCTION
+  ------  ------------------------------------------------
+    1     Display this help text.
+    2     Toggle direction between forward and backup.
+    3     Search the file or directory matching a pattern
+    4     Search next file or directory.
+    5     Move to the first file or directory.
+    6     Move to the last file or directory.
+    7     Toggle multiple inclusion flag in FILER mode;
+          or move to the initial directory in DIRECTORY
+          mode.
+    8     Scroll up or down one screenful of display.
+    9     Toggle between SINGLE and MULTIPLE mode (in
+          FILER mode).
+    0     Cancel current operation.
+
+    NEXT  Scroll down one screenfull of display
+    PREV  Scroll up one screenfull of display
+    HOME  Move to the first file or directory (keypad 5).
+    END   Move to the last file or directory (keypad 6).
+    INS   Mark or unmark the file (same as keypad 7).
+          HOME, END and INS work when the terminal sends
+          them as the VT editing keys Find, Select and
+          Insert Here (PuTTY: "Home and End keys: Standard").
+    HELP  DX help.
+    CTRL/Z  Exit DX
+    CTRL/E  Exit DX
+
+2 Entering_Input
+ There  are  several  function keys you can use when DX prompts you for
+ some input:
+
+o  CTRL/U      Delete the whole input line
+o  CTRL/J      Delete the previous word
+o  CTRL/H      Move the cursor to beginning of the input line
+o  CTRL/E      Move the cursor to end of the input line
+o  HOME, END   The same as CTRL/H and CTRL/E
+o  CTRL/A      Toggle overwrite or insert mode
+o  UP arrow    Restore the previous input from the buffer
+o  DOWN arrow  Restore the next input from the buffer
+o  Keypad 0    Cancel current operation
+
+2 Warranty
+DISTRIBUTION AND COPYRIGHT:
+
+ Copyright (C) 1989, 1992 Chau-Kuang Hung
+ Copyright 1994-1999 (c) Jérôme Lauret <jlauret@mail.chem.sunysb.edu>
+
+ This   program   is  free  software;  permission  is  granted  to  any
+ individual or institution to use, copy, or redistribute this  software
+ so  long  as it is not sold for profit, provided this copyright notice
+ is retained.
+
+DISCLAIMER:
+
+ This  software  and its documentation are provided "AS IS" and without
+ any expressed or implied warranties whatsoever.  No warranties  as  to
+ performance,  merchantability,  or  fitness  for  a particular purpose
+ exist.
+
+ In  no  event  shall  any  person  or  organization  of people be held
+ responsible   for   any    direct,    indirect,    consequential    or
+ inconsequential damages or lost profits.
+
+2 Problems_and_Comments
+ Original Author :
+      Chau-Kuang Hung (chung@appseq.us.oracle.com)
+
+ Maintained since 14-Apr-94 by Jérôme LAURET .
+
+ Please direct all comments, suggestions, and bugs to
+	<jlauret@mail.chem.sunysb.edu>
+

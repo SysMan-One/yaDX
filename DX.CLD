@@ -1,0 +1,15 @@
+! DX.CLD -- the DCL verb DX (SET COMMAND DX$HOME:DX)
+!
+!	__MODULE__	DX_CLD
+!	__IDENT__	X-02-05ECO8
+!	__REV__		02.05.08
+!
+!	MODIFICATION HISTORY:
+!
+!	28-SEP-2026	RRL	X-02-05ECO8: __MODULE__/__IDENT__/__REV__ header added.
+!
+
+define verb DX
+	image dx$home:dx.exe
+	cliflags(foreign)
+

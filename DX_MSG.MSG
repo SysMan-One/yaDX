@@ -1,0 +1,27 @@
+! DX_MSG.MSG -- DX message definitions (facility DX, prefix DXM__)
+!
+!	__MODULE__	DX_MSG
+!	__IDENT__	X-02-05ECO8
+!	__REV__		02.05.08
+!
+!	MODIFICATION HISTORY:
+!
+!	28-SEP-2026	RRL	X-02-05ECO8: __MODULE__/__IDENT__/__REV__ header added.
+!
+	.Title		DX_MSG error messages
+	.Facility	DX,1000/prefix=DXM__
+	.Ident		'X-02-05ECO8'
+	.Severity	fatal
+		BADPARSE	<Error parsing command line -- check the qualifiers and file specification you typed, correct them, and reissue the DX command>
+		SFC		<RTL or system service call failed at line !SL in module !AZ -- this is an unexpected internal error; note the line and module shown if you need to report it>/FAO=2
+	.Severity	error
+		NANSITERM	<SYS$OUTPUT must be an ANSI-compatible terminal -- run DX from a terminal, or terminal emulator, that supports ANSI escape sequences>
+		NONVT100CRT	<SYS$OUTPUT must be a VT100-compatible terminal -- set your terminal type with SET TERMINAL/DEVICE_TYPE=VT100 (or a compatible type) and try again>
+		PGLEN		<terminal page length is too small for DX's display -- make the window taller, or use SET TERMINAL/PAGE=nn to increase the page length, then try again>
+		PGWID		<terminal page width is too small for DX's display -- make the window wider, or use SET TERMINAL/WIDTH=nn to increase the page width, then try again>
+		OPENIN		<unable to open !AZ as an input file -- check that it exists and that you have read access to it, then retry>/FAO=1
+	.Severity	warning
+		CLIPAR		<command line interpreter reported an error: !AZ -- correct the qualifier or parameter in question and reissue the command>/FAO=1
+	.Severity	information
+		ERRMSG		<the underlying system call returned: !AZ>/FAO=1
+	.End

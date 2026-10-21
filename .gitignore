@@ -1,0 +1,10 @@
+.claude/
+.codegraph/
+PLAN.TXT
+HANDOFF-*.md
+*.OBJ
+*.EXE
+*.LIS
+!DX_MODULES.LIS
+*.HLB
+*.LOG
