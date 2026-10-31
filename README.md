@@ -47,7 +47,7 @@ were added. The behaviour stays the same as DX 2.5.
 | `DX.CLD`, `DX.COM` | the `DX` command for DCL |
 | `DX.HLP` | help text, built into `DXHELP.HLB` |
 | `DX_BUILD.COM`, `DX_MODULES.LIS` | the build procedure and its module list |
-| `DX_IA64.OPT` | link options for Itanium |
+| `DX_IA64.OPT` | the link options for Itanium that `DESCRIP.MMS` makes (`DX_<arch>.OPT`); `DX_BUILD.COM` does not read it, it writes its own `DX_LINK.OPT` (the same `TPUSHR` line) on Alpha and I64 |
 | `DESCRIP.MMS` | MMS/MMK build file (not tested, use `DX_BUILD.COM`) |
 | `DX$STARTUP.DAT` | a sample settings file |
 | `KEYCODE.C` | a small tool: shows the code of the key you press |
@@ -62,7 +62,8 @@ were added. The behaviour stays the same as DX 2.5.
 You do not have to build DX yourself. Every release on Codeberg has a kit:
 https://codeberg.org/SysManOne/yaDX/releases
 
-The kit (`yaDX-<version>.EXE`) is one self-extracting file made by
+The kit (`yaDX-<version>.EXE` for Alpha, `yaDX-<version>-I64.EXE` for
+Itanium (I64)) is one self-extracting file made by
 [yaDCX](https://codeberg.org/SysManOne/yaDCX). It holds a BACKUP saveset with
 the sources and with `DX.EXE` and `DXHELP.HLB` already built. Copy it to VMS
 in **binary** mode, then:
@@ -73,12 +74,17 @@ $ BACKUP DX_V29.BCK/SAVE_SET [...] ! makes the subdirectory [.DX]
 $ @[.DX]DX                        ! defines the DX command (see Install)
 ```
 
-The release page says which version is inside and has all the steps.
+The two kits have the same layout and the same steps; only the `DX.EXE`
+inside differs (an Alpha image does not run on I64 and the other way round),
+so take the kit for your architecture. The release page says which version
+is inside and has all the steps.
 
 ## Build
 
-You need DEC C / HP C on OpenVMS Alpha (tested with HP C V7.1 on OpenVMS
-V8.3). MMS or MMK is not needed.
+You need DEC C / HP C on OpenVMS Alpha or I64 (tested with HP C V7.1 on
+OpenVMS Alpha V8.3 and with HP C V7.3 on OpenVMS I64 V8.4). MMS or MMK is
+not needed. The same `@DX_BUILD` works on both; no option file per
+architecture is needed.
 
 ```
 $ SET DEFAULT dev:[dir]           ! the directory with the sources
@@ -326,7 +332,7 @@ yaDX — редакция 2026 года старых исходников DX 2.5
 | `DX.CLD`, `DX.COM` | команда `DX` для DCL |
 | `DX.HLP` | текст справки, собирается в `DXHELP.HLB` |
 | `DX_BUILD.COM`, `DX_MODULES.LIS` | процедура сборки и список модулей |
-| `DX_IA64.OPT` | опции линковки для Itanium |
+| `DX_IA64.OPT` | опции линковки для Itanium, которые делает `DESCRIP.MMS` (`DX_<arch>.OPT`); `DX_BUILD.COM` его не читает, он пишет свой `DX_LINK.OPT` (с той же строкой `TPUSHR`) и на Alpha, и на I64 |
 | `DESCRIP.MMS` | сборка через MMS/MMK (не проверялась, используйте `DX_BUILD.COM`) |
 | `DX$STARTUP.DAT` | пример файла настроек |
 | `KEYCODE.C` | маленькая утилита: показывает код нажатой клавиши |
@@ -341,7 +347,8 @@ yaDX — редакция 2026 года старых исходников DX 2.5
 Собирать DX самому не обязательно. У каждого выпуска на Codeberg есть кит:
 https://codeberg.org/SysManOne/yaDX/releases
 
-Кит (`yaDX-<версия>.EXE`) — один самораспаковывающийся файл, сделанный
+Кит (`yaDX-<версия>.EXE` для Alpha, `yaDX-<версия>-I64.EXE` для Itanium
+(I64)) — один самораспаковывающийся файл, сделанный
 [yaDCX](https://codeberg.org/SysManOne/yaDCX). В нём сейвсет BACKUP с
 исходниками и уже собранными `DX.EXE` и `DXHELP.HLB`. Скопируйте его на VMS в
 **двоичном** режиме, затем:
@@ -352,12 +359,16 @@ $ BACKUP DX_V29.BCK/SAVE_SET [...] ! создаст подкаталог [.DX]
 $ @[.DX]DX                        ! определит команду DX (см. Установка)
 ```
 
-На странице выпуска написано, какая версия внутри, и все шаги по порядку.
+Оба кита устроены одинаково и ставятся одинаково; отличается только `DX.EXE`
+внутри (образ для Alpha не работает на I64 и наоборот), поэтому берите кит
+для своей архитектуры. На странице выпуска написано, какая версия внутри, и
+все шаги по порядку.
 
 ## Сборка
 
-Нужен DEC C / HP C на OpenVMS Alpha (проверено: HP C V7.1, OpenVMS V8.3).
-MMS или MMK не нужны.
+Нужен DEC C / HP C на OpenVMS Alpha или I64 (проверено: HP C V7.1 на OpenVMS
+Alpha V8.3 и HP C V7.3 на OpenVMS I64 V8.4). MMS или MMK не нужны. Один и тот
+же `@DX_BUILD` работает на обеих; отдельный файл опций для архитектуры не нужен.
 
 ```
 $ SET DEFAULT dev:[dir]           ! каталог с исходниками
