@@ -59,12 +59,12 @@ were added. The behaviour stays the same as DX 2.5.
 
 ## Ready-to-run kit
 
-You do not have to build DX yourself. Every release on Codeberg has a kit:
-https://codeberg.org/SysManOne/yaDX/releases
+You do not have to build DX yourself. Every release on GitHub has a kit:
+https://github.com/SysMan-One/yaDX/releases
 
 The kit (`yaDX-<version>.EXE` for Alpha, `yaDX-<version>-I64.EXE` for
 Itanium (I64)) is one self-extracting file made by
-[yaDCX](https://codeberg.org/SysManOne/yaDCX). It holds a BACKUP saveset with
+[yaDCX](https://github.com/SysMan-One/yaDCX). It holds a BACKUP saveset with
 the sources and with `DX.EXE` and `DXHELP.HLB` already built. Copy it to VMS
 in **binary** mode, then:
 
@@ -344,12 +344,12 @@ yaDX — редакция 2026 года старых исходников DX 2.5
 
 ## Готовый кит
 
-Собирать DX самому не обязательно. У каждого выпуска на Codeberg есть кит:
-https://codeberg.org/SysManOne/yaDX/releases
+Собирать DX самому не обязательно. У каждого выпуска на GitHub есть кит:
+https://github.com/SysMan-One/yaDX/releases
 
 Кит (`yaDX-<версия>.EXE` для Alpha, `yaDX-<версия>-I64.EXE` для Itanium
 (I64)) — один самораспаковывающийся файл, сделанный
-[yaDCX](https://codeberg.org/SysManOne/yaDCX). В нём сейвсет BACKUP с
+[yaDCX](https://github.com/SysMan-One/yaDCX). В нём сейвсет BACKUP с
 исходниками и уже собранными `DX.EXE` и `DXHELP.HLB`. Скопируйте его на VMS в
 **двоичном** режиме, затем:
 
